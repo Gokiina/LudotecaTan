@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 *ngIf="customer.id == null">Crear cliente</h1>
+    <mat-error *ngIf=errorMessage>{{ errorMessage }}</mat-error>
+    <h1 *ngIf="customer.id != null">Modificar cliente</h1>
+
+    <form>
+        <mat-form-field>
+            <mat-label>Identificador</mat-label>
+            <input type="text" matInput placeholder="Identificador" [(ngModel)]="customer.id" name="id" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput placeholder="Nombre del cliente" [(ngModel)]="customer.name" name="name" required>
+        </mat-form-field>
+    </form>
+
+    <div class="buttons">
+        <button mat-stroked-button (click)="onClose()">Cerrar</button>
+        <button mat-flat-button color="primary" (click)="onSave()">Guardar</button>
+    </div>
+</div>
